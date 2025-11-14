@@ -4,15 +4,15 @@
 
 设置以下环境变量后启动容器，或通过 `npm start` 手动启动：
 
-- `CONFIG_PATH`：YAML 配置文件路径，默认为项目目录下的 `config.yaml`
+- `CONFIG_PATH`：YAML 配置文件路径，默认为项目当前目录下的 `config.yaml`
 - `STEAM_USERNAME`：Steam 用户名（必须）
 - `STEAM_PASSWORD`：Steam 密码（当没有已存在的 refresh token 时必须）
-- `STEAM_AUTH_CODE`：Steam 邮件验证码（当启用邮箱验证码且时必须，也可以在 stdin 手动输入任何令牌验证码）
-- `STEAM_2FA_CODE`：Steam 认证验证码（当启用令牌且时必须，也可以在 stdin 手动输入任何令牌验证码）
-- `STEAM_DATA_DIR`：Steam 数据目录，默认为项目目录下的 `steam-data`
-- `STEAM_MACHINE_NAME`：设置机器名
-- `STEAM_CLIENT_OS`：参考 [EPersonaState](https://github.com/DoctorMcKay/node-steam-user/blob/master/enums/EPersonaState.js)
-- `STEAM_PERSONA_STATE`：登录后切换的 Steam 个人状态，默认为 `7`（隐身），参考 [EOSType](https://github.com/DoctorMcKay/node-steam-user/blob/master/enums/EOSType.js)
+- `STEAM_AUTH_CODE`：Steam 邮件验证码（当启用邮箱验证码时可传入，也可以在 stdin 手动输入任何验证码）
+- `STEAM_2FA_CODE`：Steam 认证验证码（当启用移动应用令牌且时可传入，也可以在 stdin 手动输入任何验证码）
+- `STEAM_DATA_DIR`：Steam 数据目录，默认为项目当前目录下的 `steam-data`
+- `STEAM_MACHINE_NAME`：机器名，默认为空
+- `STEAM_CLIENT_OS`：客户端 OS，默认自动获取，参考 [EPersonaState](https://github.com/DoctorMcKay/node-steam-user/blob/master/enums/EPersonaState.js)
+- `STEAM_PERSONA_STATE`：设置登录后切换的 Steam 个人状态，默认为 `7`（隐身），参考 [EOSType](https://github.com/DoctorMcKay/node-steam-user/blob/master/enums/EOSType.js)
 - `BARK_DOMAIN`：Bark 服务器地址，默认为 `https://api.day.app`
 - `BARK_KEY`：Bark 推送 Key
 - `LOGOUT_BEFORE_EXIT`：是否在程序退出前登出 Steam，默认为 `false`
