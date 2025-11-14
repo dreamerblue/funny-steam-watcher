@@ -15,7 +15,6 @@
     "dayjs": "^1.11.19",
     "fs-extra": "^9.1.0",
     "js-yaml": "^4.1.1",
-    "steam-totp": "^2.1.2",
     "steam-user": "^5.2.3"
   }
 }

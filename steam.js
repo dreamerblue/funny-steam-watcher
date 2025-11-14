@@ -1,5 +1,4 @@
 const SteamUser = require('steam-user');
-const SteamTotp = require('steam-totp');
 const axios = require('axios');
 const path = require('path');
 const fs = require('fs-extra');
@@ -170,8 +169,12 @@ async function printFriendPersonaDelta(accountId, sid64, prev, curr, displayName
   );
 }
 
-client.on('steamGuard', (domain, cb) => {
-  process.stdout.write(`Input Steam Guard${domain ? ` (${domain})` : ''} auth code: `);
+client.on('steamGuard', (domain, cb, lastCodeWrong) => {
+  process.stdout.write(
+    `${lastCodeWrong ? '(Code was wrong) ' : ''}Input Steam Guard${
+      domain ? ` (${domain})` : ''
+    } auth code: `,
+  );
   process.stdin.once('data', (d) => cb(d.toString().trim()));
 });
 
@@ -278,9 +281,8 @@ async function main() {
   } else {
     logOnOptions.accountName = process.env.STEAM_USERNAME;
     logOnOptions.password = process.env.STEAM_PASSWORD;
-    logOnOptions.twoFactorCode = process.env.STEAM_TOTP
-      ? SteamTotp.generateAuthCode(process.env.STEAM_TOTP)
-      : undefined;
+    logOnOptions.authCode = process.env.STEAM_AUTH_CODE;
+    logOnOptions.twoFactorCode = process.env.STEAM_2FA_CODE;
   }
 
   client.logOn(logOnOptions);
