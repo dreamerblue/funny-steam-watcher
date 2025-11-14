@@ -1,1 +1,37 @@
 # funny-steam-watcher
+
+建议通过 docker 镜像运行：`docker pull dreamerblue/funny-steam-watcher`，也可以安装依赖运行。
+
+设置以下环境变量后启动容器，或通过 `npm start` 手动启动：
+
+- `CONFIG_PATH`：YAML 配置文件路径，默认为项目目录下的 `config.yaml`
+- `STEAM_USERNAME`：Steam 用户名（必须）
+- `STEAM_PASSWORD`：Steam 密码（当没有已存在的 refresh token 时必须）
+- `STEAM_AUTH_CODE`：Steam 邮件验证码（当启用邮箱验证码且时必须，也可以在 stdin 手动输入任何令牌验证码）
+- `STEAM_2FA_CODE`：Steam 认证验证码（当启用令牌且时必须，也可以在 stdin 手动输入任何令牌验证码）
+- `STEAM_DATA_DIR`：Steam 数据目录，默认为项目目录下的 `steam-data`
+- `STEAM_MACHINE_NAME`：设置机器名
+- `STEAM_CLIENT_OS`：参考 [EPersonaState](https://github.com/DoctorMcKay/node-steam-user/blob/master/enums/EPersonaState.js)
+- `STEAM_PERSONA_STATE`：登录后切换的 Steam 个人状态，默认为 `7`（隐身），参考 [EOSType](https://github.com/DoctorMcKay/node-steam-user/blob/master/enums/EOSType.js)
+- `BARK_DOMAIN`：Bark 服务器地址，默认为 `https://api.day.app`
+- `BARK_KEY`：Bark 推送 Key
+- `LOGOUT_BEFORE_EXIT`：是否在程序退出前登出 Steam，默认为 `false`
+- `USE_TIME_PREFIX`：是否在日志前添加时间前缀，默认为 `false`
+- `DEBUG_STEAM`：是否启用 Steam 调试日志，默认为 `false`
+
+## 配置文件
+
+示例：
+
+```yaml
+watch: # 要关注游戏状态的好友
+  '1': # Steam 好友 ID
+    - 570 # 关注的游戏 App ID
+    - 730
+  '2':
+    - '*' # 关注任何游戏
+```
+
+游戏的 App ID 可以从 [SteamDB](https://steamdb.info/apps/) 查询。
+
+当好友开始游玩关注的游戏时，将通过 Bark 推送通知。
