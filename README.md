@@ -15,8 +15,8 @@
 - `STEAM_2FA_CODE`：Steam 认证验证码（当启用移动应用令牌且时可传入，也可以在 stdin 手动输入任何验证码）
 - `STEAM_DATA_DIR`：Steam 数据目录，默认为项目当前目录下的 `steam-data`
 - `STEAM_MACHINE_NAME`：机器名，默认为空
-- `STEAM_CLIENT_OS`：客户端 OS，默认自动获取，参考 [EPersonaState](https://github.com/DoctorMcKay/node-steam-user/blob/master/enums/EPersonaState.js)
-- `STEAM_PERSONA_STATE`：设置登录后切换的 Steam 个人状态，默认为 `7`（隐身），参考 [EOSType](https://github.com/DoctorMcKay/node-steam-user/blob/master/enums/EOSType.js)
+- `STEAM_CLIENT_OS`：客户端 OS，默认自动获取，参考 [EOSType](https://github.com/DoctorMcKay/node-steam-user/blob/master/enums/EOSType.js)
+- `STEAM_PERSONA_STATE`：设置登录后切换的 Steam 个人状态，默认为 `7`（隐身），参考 [EPersonaState](https://github.com/DoctorMcKay/node-steam-user/blob/master/enums/EPersonaState.js)
 - `BARK_DOMAIN`：Bark 服务器地址，默认为 `https://api.day.app`
 - `BARK_KEY`：Bark 推送 Key
 - `LOGOUT_BEFORE_EXIT`：是否在程序退出前登出 Steam，默认为 `false`
