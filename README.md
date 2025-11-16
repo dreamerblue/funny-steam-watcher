@@ -1,8 +1,12 @@
 # funny-steam-watcher
 
-建议通过 docker 镜像运行：`docker pull dreamerblue/funny-steam-watcher`，也可以安装依赖运行。
+一个简单的 Steam 工具，当好友开始游玩关注的游戏时，推送通知到其他设备（当前仅支持 Bark）。
 
-设置以下环境变量后启动容器，或通过 `npm start` 手动启动：
+------
+
+建议通过 docker 镜像运行：`docker pull dreamerblue/funny-steam-watcher`，也可以安装依赖手动运行（需要 Node.js 环境）。
+
+设置环境变量后启动容器，或通过 `npm start` 手动启动：
 
 - `CONFIG_PATH`：YAML 配置文件路径，默认为项目当前目录下的 `config.yaml`
 - `STEAM_USERNAME`：Steam 用户名（必须）
@@ -33,5 +37,3 @@ watch: # 要关注游戏状态的好友
 ```
 
 游戏的 App ID 可以从 [SteamDB](https://steamdb.info/apps/) 查询。
-
-当好友开始游玩关注的游戏时，将通过 Bark 推送通知。

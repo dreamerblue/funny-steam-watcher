@@ -2,7 +2,6 @@ FROM node:18
 
 WORKDIR /app/
 
-COPY README.md ./
 COPY package.json ./
 COPY package-lock.json ./
 COPY *.js ./
