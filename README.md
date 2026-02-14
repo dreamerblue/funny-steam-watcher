@@ -8,6 +8,7 @@
 
 设置环境变量后启动容器，或通过 `npm start` 手动启动：
 
+- `START_DELAY`：启动延迟时间，单位为毫秒，默认为 `0`
 - `CONFIG_PATH`：YAML 配置文件路径，默认为项目当前目录下的 `config.yaml`
 - `STEAM_USERNAME`：Steam 用户名（必须）
 - `STEAM_PASSWORD`：Steam 密码（当没有已存在的 refresh token 时必须）
